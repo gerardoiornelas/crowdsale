@@ -110,6 +110,7 @@ const App = () => {
                 provider={provider}
                 price={price}
                 crowdsale={crowdsale}
+                loadBlockchainData={loadBlockchainData}
               />
             </Box>
             <TokensSoldProgress tokensSold={tokensSold} maxTokens={maxTokens} />
