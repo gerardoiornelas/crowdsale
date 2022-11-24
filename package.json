@@ -5,6 +5,8 @@
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
+    "@mui/icons-material": "^5.10.15",
+    "@mui/lab": "^5.0.0-alpha.109",
     "@mui/material": "^5.10.15",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
@@ -13,6 +15,7 @@
     "react": "^18.2.0",
     "react-bootstrap": "^2.4.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.39.5",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
@@ -21,7 +24,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test"
   },
-  "author": "gregory@dappuniversity.com",
+  "author": "Gerardo Ornelas <gerardo@ornelastechnologies.com>",
   "license": "ISC",
   "eslintConfig": {
     "extends": [

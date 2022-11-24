@@ -1,20 +1,20 @@
 import React, { useState } from "react";
-import _ from "lodash";
-import { Box, Grid, TextField, Button, CircularProgress } from "@mui/material";
+import { Box, Grid, TextField } from "@mui/material";
+import { LoadingButton } from "@mui/lab";
+import { useForm } from "react-hook-form";
 import { ethers } from "ethers";
 
 const BuyTokens = ({ provider, price, crowdsale, setisLoading }) => {
-  const [amount, setAmount] = useState(0);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
   const [isWaiting, setIsWaiting] = useState(false);
-  const handleOnChange = (e) => {
-    const val = _.toNumber(e.target.value);
-    setAmount(val);
-  };
 
-  const buyTokensHandler = async (e) => {
-    e.preventDefault();
+  const buyTokensHandler = async ({ amount }) => {
     setIsWaiting(true);
-    console.log("BuyTokensing tokens...");
+    console.log("Buying tokens...");
     try {
       // Get signer - user of contract
       const signer = await provider.getSigner();
@@ -33,40 +33,43 @@ const BuyTokens = ({ provider, price, crowdsale, setisLoading }) => {
         .buyTokens(formattedAmount, { value: value });
 
       await transaction.wait();
+      setIsWaiting(false);
+      window.location.reload(true);
     } catch {
       window.alert("User rejected or transaction reverted");
     }
   };
 
-  console.log({ amount });
   return (
     <Grid container>
       <Grid item xs={12}>
         <Grid container>
           <Grid item xs={2}></Grid>
           <Grid item xs={8}>
-            <Box component="form" onSubmit={buyTokensHandler}>
+            <Box component="form" onSubmit={handleSubmit(buyTokensHandler)}>
               <Grid container spacing={2}>
                 <Grid item xs={12} md={8}>
                   <TextField
                     id="amount"
-                    name="amoutn"
+                    name="amou"
                     label="Enter Amount"
                     variant="outlined"
                     fullWidth
                     size="small"
                     type="number"
-                    onChange={handleOnChange}
+                    {...register("amount", { required: true })}
                   />
+                  {errors.amount && <span>This field is required</span>}
                 </Grid>
                 <Grid item xs={12} md={4}>
-                  {isWaiting ? (
-                    <CircularProgress />
-                  ) : (
-                    <Button type="submit" variant="contained" fullWidth>
-                      Buy Tokens
-                    </Button>
-                  )}
+                  <LoadingButton
+                    loading={isWaiting}
+                    type="submit"
+                    variant="contained"
+                    fullWidth
+                  >
+                    Buy Tokens
+                  </LoadingButton>
                 </Grid>
               </Grid>
             </Box>
