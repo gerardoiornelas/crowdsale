@@ -30,11 +30,9 @@
     "gatsby-transformer-sharp": "^5.2.0",
     "hardhat": "^2.12.6",
     "intersection-observer": "^0.12.2",
-    "nft.storage": "^7.0.0",
     "react": "latest",
     "react-dom": "latest",
     "react-helmet": "latest",
-    "react-hook-form": "^7.43.1",
     "react-intersection-observer": "^9.4.1",
     "react-redux": "^8.0.5"
   },
