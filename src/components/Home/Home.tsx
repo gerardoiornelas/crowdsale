@@ -17,7 +17,7 @@ import { BuyTokens } from "../BuyTokens";
 
 import TOKEN_ABI from "../../abis/Token.json";
 import CROWDSALE_ABI from "../../abis/Crowdsale.json";
-import config from "../../config.json";
+import { goerli } from "../../networkConfig";
 
 const Home = () => {
   const [provider, setProvider] = useState(null);
@@ -38,12 +38,12 @@ const Home = () => {
 
     // Initiate contracts
     const token = new ethers.Contract(
-      config[31337].token.address,
+      goerli.token.address,
       TOKEN_ABI,
       provider
     );
     const crowdsale = new ethers.Contract(
-      config[31337].crowdsale.address,
+      goerli.crowdsale.address,
       CROWDSALE_ABI,
       provider
     );
