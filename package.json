@@ -1,7 +1,7 @@
 {
-  "name": "ai-nft-minter",
+  "name": "gio-crowdsale",
   "private": true,
-  "description": "Gatsby Hardhat MUI starter",
+  "description": "Crowdsale by Gerardo I. Ornelas",
   "version": "0.1.0",
   "engines": {
     "node": "18.12.1"
