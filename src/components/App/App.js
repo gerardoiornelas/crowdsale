@@ -92,7 +92,7 @@ const App = () => {
         </Box>
         <Box my={4}>
           <Typography variant="h3" align="center">
-            Introducing DApp Token!
+            Introducing GIO Token!
           </Typography>
         </Box>
         {isLoading ? (
