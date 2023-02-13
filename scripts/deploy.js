@@ -8,8 +8,8 @@ const hre = require("hardhat");
 
 async function main() {
   // Deployment goes here
-  const NAME = "Dapp University";
-  const SYMBOL = "DAPP";
+  const NAME = "Gerardo I. Ornelas";
+  const SYMBOL = "GIO";
   const MAX_SUPPLY = "1000000";
   const PRICE = ethers.utils.parseUnits("0.025", "ether");
 
